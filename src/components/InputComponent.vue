@@ -13,11 +13,7 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 import { Splitter } from '../services/splitter.service.js'
-=======
-import {Splitter} from '../services/splitter.service.js'
->>>>>>> a1f16fb3a690babb274b83b00c96f62bbe639fd7
 
 export default {
   name: 'InputComponent',

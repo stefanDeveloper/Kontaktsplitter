@@ -1,6 +1,6 @@
 export class Constants {
-  static titel = ['Prof.', 'Professor', 'Dr.', 'Doktor', 'Dipl.', 'Diplom']
-  static anrede = new Map([
+  static titles = ['Prof.', 'Professor', 'Dr.', 'Doktor', 'Dipl.', 'Diplom']
+  static salutations = new Map([
     ['Mr.', {
       'geschlecht': 'männlich',
       'anrede': 'Mr.',
@@ -50,17 +50,17 @@ export class Constants {
       'anrede': 'Mme.',
       'brief': 'Madame' }
     ]])
-  static defaultAnrede = 'Sehr geehrte Damen und Herren'
+  static defaultSalutation = 'Sehr geehrte Damen und Herren'
 
-  static getTitel () {
-    return this.titel
+  static getTitles () {
+    return this.titles
   }
 
-  static getAnrede () {
-    return this.anrede
+  static getSalutations () {
+    return this.salutations
   }
 
-  static getDefaultAnrede () {
-    return this.defaultAnrede
+  static getDefaultSalutation () {
+    return this.defaultSalutation
   }
 }
