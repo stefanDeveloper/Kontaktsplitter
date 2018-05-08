@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <InputComponent v-on:add-entry="addEntry($event)"></InputComponent>
+  <div class="container is-widescreen">
+    <InputComponent></InputComponent>
     <Listing :listEntries="entries"></Listing>
   </div>
 </template>
