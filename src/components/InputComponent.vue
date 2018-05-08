@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Splitter from '../services/splitter.service.js'
+import { Splitter } from '../services/splitter.service.js'
 
 export default {
   name: 'InputComponent',
