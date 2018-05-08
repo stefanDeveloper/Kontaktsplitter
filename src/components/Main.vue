@@ -49,6 +49,20 @@ export default {
         'vorname': 'Heinreich Freiherr',
         'nachname': 'vom Wald'
       })
+      this.addEntry({
+        'anrede': 'Herrn Dr.',
+        'briefanrede': 'Sehr geehrter Herr Dr.',
+        'geschlecht': 'männlich',
+        'vorname': 'Sandro',
+        'nachname': 'Gutmensch'
+      })
+      this.addEntry({
+        'anrede': 'Frau',
+        'briefanrede': 'Sehr geehrte Frau',
+        'geschlecht': 'weiblich',
+        'vorname': 'Sandra',
+        'nachname': 'Berger'
+      })
     },
     clearAllData () {
       Persistence.clearAllData()
