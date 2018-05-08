@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <InputComponent></InputComponent>
-    <Listing></Listing>
+    <Listing :entries2="entries"></Listing>
   </div>
 </template>
 
@@ -17,7 +17,20 @@ export default {
   },
   data () {
     return {
-      msg: ''
+      entries: [{
+        'anrede': 'Frau',
+        'briefanrede': 'Sehr geehrte Frau',
+        'geschlecht': 'weiblich',
+        'vorname': 'Sandra',
+        'nachname': 'Berger'
+      },
+      {
+        'anrede': 'Herrn Dr.',
+        'briefanrede': 'Sehr geehrter Herr Dr.',
+        'geschlecht': 'männlich',
+        'vorname': 'Sandro',
+        'nachname': 'Gutmensch'
+      }]
     }
   }
 }
