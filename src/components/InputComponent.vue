@@ -1,11 +1,15 @@
 <template>
-  <section class="container">
-        <b-field label="Username"
-            type="is-success"
+  <div class="columns">
+      <div class="column is-four-fifths">
+        <b-field type="is-success"
             message="This username is available">
             <b-input value="johnsilver" maxlength="100"></b-input>
         </b-field>
-    </section>
+      </div>
+      <div class="column">
+        <button class="button level-right" slot="trigger" v-on:click="buttonHandler">Übernehmen</button>
+      </div>
+    </div>
 </template>
 
 <script>
@@ -14,6 +18,11 @@ export default {
   data () {
     return {
       name: 'John Silver'
+    }
+  },
+  methods: {
+    buttonHandler: function (event) {
+      console.log('Clicked')
     }
   }
 }
