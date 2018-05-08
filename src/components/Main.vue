@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <InputComponent></InputComponent>
-    <Listing :entries2="entries"></Listing>
+    <InputComponent v-on:add-entry="addEntry($event)"></InputComponent>
+    <Listing :listEntries="entries"></Listing>
   </div>
 </template>
 
@@ -31,6 +31,11 @@ export default {
         'vorname': 'Sandro',
         'nachname': 'Gutmensch'
       }]
+    }
+  },
+  methods: {
+    addEntry (entry) {
+      console.log('Adding entry', entry)
     }
   }
 }

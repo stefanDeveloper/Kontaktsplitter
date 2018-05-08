@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-table :data="entries2">
+    <b-table :data="listEntries">
       <template slot-scope="props">
         <b-table-column field="anrede" label="Anrede">
           {{ props.row.anrede }}
@@ -46,7 +46,7 @@ export default {
       msg: ''
     }
   },
-  props: ['entries2']
+  props: ['listEntries']
 }
 </script>
 
