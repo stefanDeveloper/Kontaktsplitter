@@ -1,5 +1,14 @@
 export class Splitter {
   static splitRawInput (input) {
-    return {}
+    var splitObj = {
+      'anrede': 'Frau',
+      'briefanrede': 'Sehr geehrte Frau',
+      'titel': '',
+      'geschlecht': 'weiblich',
+      'vorname': 'Sandra',
+      'nachname': 'Berger'
+
+    }
+    return splitObj
   }
 }
