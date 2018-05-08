@@ -4,6 +4,7 @@ export class Splitter {
   static regex = new RegExp(',', 'g')
 
   static splitRawInput (input) {
+<<<<<<< HEAD
     let entry = {}
     // Check Anrede of Input
     let anrede = Constants.getAnrede()
@@ -28,5 +29,17 @@ export class Splitter {
     console.log(input)
     console.log(entry)
     return entry
+=======
+    var splitObj = {
+      'anrede': 'Frau',
+      'briefanrede': 'Sehr geehrte Frau',
+      'titel': '',
+      'geschlecht': 'weiblich',
+      'vorname': 'Sandra',
+      'nachname': 'Berger'
+
+    }
+    return splitObj
+>>>>>>> a1f16fb3a690babb274b83b00c96f62bbe639fd7
   }
 }
