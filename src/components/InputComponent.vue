@@ -1,22 +1,19 @@
 <template>
-  <div class="hello">
-    <b-field label="Anrede"
-            type="is-danger"
-            message="This email is invalid">
-        <b-input type="email"
-            value="john@"
-            maxlength="30">
-        </b-input>
-    </b-field>
-  </div>
+  <section class="container">
+        <b-field label="Username"
+            type="is-success"
+            message="This username is available">
+            <b-input value="johnsilver" maxlength="100"></b-input>
+        </b-field>
+    </section>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'InputComponent',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      name: 'John Silver'
     }
   }
 }
