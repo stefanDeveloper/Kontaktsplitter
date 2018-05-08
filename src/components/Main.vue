@@ -1,17 +1,19 @@
 <template>
-  <div>
-    <h1>Hello :) </h1>
+  <div class="container">
+    <InputComponent></InputComponent>
     <Listing></Listing>
   </div>
 </template>
 
 <script>
 import Listing from './Listing.vue'
+import InputComponent from './InputComponent.vue'
 
 export default {
   name: 'Main',
   components: {
-    Listing
+    Listing,
+    InputComponent
   },
   data () {
     return {
