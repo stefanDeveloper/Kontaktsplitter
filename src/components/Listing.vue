@@ -37,7 +37,7 @@
               <b-icon icon="emoticon-sad" size="is-large">
               </b-icon>
             </p>
-            <p>Nothing here.</p>
+            <p>Noch keine Kontakte eingetragen.</p>
           </div>
         </section>
       </template>
