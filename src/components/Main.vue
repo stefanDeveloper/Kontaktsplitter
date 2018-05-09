@@ -6,12 +6,7 @@
         Neuer Testdaten Eintrag
       </button>
     </p>
-    <p class="control">
-      <button class="button is-primary" @click="clearAllData">
-        Alle Daten löschen
-      </button>
-    </p>
-    <Listing :listEntries="entries"></Listing>
+    <Listing v-on:delete-entries="deleteEntries" :listEntries="entries"></Listing>
   </div>
 </template>
 
@@ -32,14 +27,12 @@ export default {
     }
   },
   methods: {
+    // Adds the given entry to the store and the list
     addEntry (entry) {
-      console.log('Adding entry to store and list', entry)
       this.$data.entries.push(entry)
       Persistence.addEntry(entry)
-
-      const newStorageData = Persistence.getAllEntries()
-      console.log('new entries', newStorageData)
     },
+    // Adds three constant test entries to the store and list
     addTestEntry () {
       // Dummy call of the addEntry event
       this.addEntry({
@@ -64,11 +57,16 @@ export default {
         'nachname': 'Berger'
       })
     },
-    clearAllData () {
-      Persistence.clearAllData()
-      this.$data.entries = []
+    // Deletes the given entries
+    deleteEntries (entries) {
+      console.log('Deleting ' + entries.length + ' entries.')
+      const newDataset = Persistence.deleteEntries(entries)
+      this.$data.entries = newDataset
     }
   },
+  // Called when the component is created
+  // Evaluates if the local storage is available on the storage
+  // Resolves the dataset from the storage if it is available
   created () {
     const storageAvailable = Persistence.isStorageAvailable()
     if (storageAvailable) {
