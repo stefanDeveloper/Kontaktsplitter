@@ -3,7 +3,15 @@
       <div class="column is-four-fifths">
         <b-field type="is-success"
             message="This username is available">
-            <b-input v-model="inputRaw" placeholder="Anrede" maxlength="100" @input="inputHandler"></b-input>
+            <b-autocomplete
+                rounded
+                v-model="inputRaw"
+                :data="filteredDataArray"
+                placeholder="Anrede"
+                icon="magnify"
+                @select="option => selected = option">
+                <template slot="empty">No results found</template>
+            </b-autocomplete>
         </b-field>
       </div>
       <div class="column">
@@ -19,14 +27,26 @@ export default {
   name: 'InputComponent',
   data () {
     return {
-      'inputRaw': ''
+      inputRaw: '',
+      entry: {
+        anrede: ''
+      },
+      selected: null
     }
   },
   methods: {
     buttonHandler: function (event) {
+      let entry = Splitter.splitRawInput(this.$data.inputRaw)
+      this.$emit('add-entry', entry)
     },
     inputHandler: function (event) {
-      Splitter.splitRawInput(this.$data.inputRaw)
+      this.$data.entry = Splitter.splitRawInput(this.$data.inputRaw)
+      return ['Test']
+    }
+  },
+  computed: {
+    filteredDataArray () {
+      return [this.$data.entry.anrede]
     }
   }
 }

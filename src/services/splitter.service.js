@@ -62,7 +62,6 @@ export class Splitter {
       }
       entry['nachname'] = inputArray.join(' ')
     }
-    console.log(entry)
     return entry
   }
 }
