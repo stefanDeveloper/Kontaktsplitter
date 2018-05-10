@@ -9,7 +9,8 @@
                 :data="filteredDataArray"
                 placeholder="Anrede"
                 icon="magnify"
-                @select="option => selected = option">
+                @select="option => selected = option"
+                @input="inputHandler">
                 <template slot="empty">No results found</template>
             </b-autocomplete>
         </b-field>

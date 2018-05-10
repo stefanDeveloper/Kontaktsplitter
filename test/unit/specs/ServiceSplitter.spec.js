@@ -34,7 +34,7 @@ describe('splitter.service.js', () => {
   it('splits unformatted address Professor Heinreich Freiherr vom Wald', () => {
     var testObject = {
       'anrede': 'Prof.',
-      'briefanrede': 'Guten Tag Prof.',
+      'briefanrede': 'Sehr geehrte Damen und Herren',
       'titel': 'Prof.',
       'geschlecht': '',
       'vorname': 'Heinreich Freiherr',
@@ -70,7 +70,7 @@ describe('splitter.service.js', () => {
   it('splits unformatted address Estobar y Gonzales', () => {
     var testObject = {
       'anrede': '',
-      'briefanrede': 'Guten Tag',
+      'briefanrede': 'Estimados Senores y Senoras',
       'titel': '',
       'geschlecht': '',
       'vorname': 'Estobar',
@@ -106,7 +106,7 @@ describe('splitter.service.js', () => {
   it('splits unformatted address Dr. Russwurm, Winfried', () => {
     var testObject = {
       'anrede': 'Dr.',
-      'briefanrede': 'Guten Tag Dr.',
+      'briefanrede': 'Sehr geehrte Damen und Herren',
       'titel': 'Dr.',
       'geschlecht': '',
       'vorname': 'Winfried',
@@ -119,6 +119,7 @@ describe('splitter.service.js', () => {
     var testObject = {
       'anrede': 'Herrn Dr.-Ing. Dr. rer. nat. Dr. h.c. mult.',
       'briefanrede': 'Sehr geehrter Herr Dr.-Ing. Dr. rer. nat. Dr. h.c. mult.',
+      'titel': 'Dr.-Ing. Dr. rer. nat. Dr. h.c. mult.',
       'geschlecht': 'männlich',
       'vorname': 'Paul',
       'nachname': 'Steffens'

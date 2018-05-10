@@ -1,5 +1,27 @@
 export class Constants {
-  static titles = ['Prof.', 'Professor', 'Dr.', 'Doktor', 'Dipl.', 'Diplom']
+  static titles = new Map([
+    ['Prof.', {
+      'title': 'Professor',
+      'kurzBz': 'Prof.'}
+    ], ['Professor', {
+      'title': 'Professor',
+      'kurzBz': 'Prof.'}
+    ], ['Dr.', {
+      'title': 'Doktor',
+      'kurzBz': 'Dr.'}
+    ], ['Doktor', {
+      'title': 'Doktor',
+      'kurzBz': 'Dr.'}
+    ], ['Dipl.', {
+      'title': 'Diplom',
+      'kurzBz': 'Dipl.'}
+    ], ['Diplom', {
+      'title': 'Diplom',
+      'kurzBz': 'Dipl.'}
+    ], ['Dr.-Ing.', {
+      'title': 'Doktor Ingenieur',
+      'kurzBz': 'Dr.-Ing.'}
+    ]])
   static salutations = new Map([
     ['Mr.', {
       'geschlecht': 'männlich',
@@ -49,6 +71,14 @@ export class Constants {
       'geschlecht': 'weiblich',
       'anrede': 'Mme.',
       'brief': 'Madame' }
+    ], ['Se\u00f1ora.', {
+      'geschlecht': 'weiblich',
+      'anrede': 'Se\u00f1ora.',
+      'brief': 'Estimada Se\u00f1ora' }
+    ], ['Se\u00f1or.', {
+      'geschlecht': 'männlich',
+      'anrede': 'Se\u00f1or.',
+      'brief': 'Estimado Se\u00f1or' }
     ]])
   static defaultSalutation = 'Sehr geehrte Damen und Herren'
 
