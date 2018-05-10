@@ -37,16 +37,16 @@ describe('splitter.service.js', () => {
       'briefanrede': 'Sehr geehrte Damen und Herren',
       'titel': 'Prof.',
       'geschlecht': '',
-      'vorname': 'Heinreich Freiherr',
-      'nachname': 'vom Wald'
+      'vorname': 'Heinreich',
+      'nachname': 'Freiherr vom Wald'
     }
     // Assert that unformat address gets formatted
     expect(Splitter.splitRawInput('Professor Heinreich Freiherr vom Wald')).to.deep.equal(testObject)
   })
   it('splits unformatted address Mrs. Doreen Faber', () => {
     var testObject = {
-      'anrede': 'Mrs',
-      'briefanrede': 'Dear Mrs',
+      'anrede': 'Mrs.',
+      'briefanrede': 'Dear Mrs.',
       'titel': '',
       'geschlecht': 'weiblich',
       'vorname': 'Doreen',
@@ -57,7 +57,7 @@ describe('splitter.service.js', () => {
   })
   it('splits unformatted address Mme. Charlotte Noir', () => {
     var testObject = {
-      'anrede': 'Mme',
+      'anrede': 'Mme.',
       'briefanrede': 'Madame',
       'titel': '',
       'geschlecht': 'weiblich',
@@ -70,7 +70,7 @@ describe('splitter.service.js', () => {
   it('splits unformatted address Estobar y Gonzales', () => {
     var testObject = {
       'anrede': '',
-      'briefanrede': 'Estimados Senores y Senoras',
+      'briefanrede': 'Sehr geehrte Damen und Herren',
       'titel': '',
       'geschlecht': '',
       'vorname': 'Estobar',
