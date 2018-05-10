@@ -1,11 +1,13 @@
 <template>
   <div>
+    <!-- Search input -->
     <b-field class="search-input">
-      <b-autocomplete rounded v-model="name" :data="filterOptions" placeholder="Suchwort" icon="magnify" @select="option => selected = option">
+      <b-autocomplete rounded v-model="name" :data="filterOptions" placeholder="Suchwort" icon="magnify">
         <template slot="empty">Keine Ergebnisse</template>
       </b-autocomplete>
     </b-field>
-    <b-table :data="filteredData">
+    <!-- List -->
+    <b-table :data="filteredData" :checked-rows.sync="checkedRows" checkable>
       <template slot-scope="props">
         <b-table-column field="anrede" label="Anrede">
           {{ props.row.anrede }}
@@ -35,11 +37,16 @@
               <b-icon icon="emoticon-sad" size="is-large">
               </b-icon>
             </p>
-            <p>Nothing here.</p>
+            <p>Noch keine Kontakte eingetragen.</p>
           </div>
         </section>
       </template>
     </b-table>
+    <!-- Delete button -->
+    <p class="control is-pulled-right">
+      <button :disabled="checkedRows.length == 0" class="button is-primary" v-text="deleteButtonText" v-on:click="deleteCheckedRows()">
+      </button>
+    </p>
   </div>
 </template>
 
@@ -60,11 +67,25 @@ export default {
     return {
       msg: '',
       selected: '',
-      name: ''
+      name: '',
+      checkedRows: []
     }
   },
   props: ['listEntries'],
   computed: {
+    deleteButtonText () {
+      const checkedEntries = this.$data.checkedRows
+      if (checkedEntries == null || checkedEntries.length == 0) {
+        // No entries checked
+        return 'Einträge Löschen'
+      } else if (checkedEntries.length == 1) {
+        // One entry checked
+        return '1 Eintrag löschen'
+      } else {
+        // More then one entry checked
+        return checkedEntries.length + ' Einträge löschen'
+      }
+    },
     filterOptions () {
       // Create list of all options
       let allEntries = []
@@ -105,6 +126,13 @@ export default {
         }
       })
       return results
+    }
+  },
+  methods: {
+    deleteCheckedRows () {
+      const checkedRows = this.$data.checkedRows
+      this.$emit('delete-entries', checkedRows)
+      this.$data.checkedRows = []
     }
   }
 }

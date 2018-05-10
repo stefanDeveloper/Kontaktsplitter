@@ -41,6 +41,7 @@ export class Splitter {
       entry['titel'] = title
     }
 
+<<<<<<< HEAD
     // Check First and Last name
     if (inputArray.some(v => v.indexOf(',') !== -1)) {
       entry['vorname'] = inputArray[inputArray.length - 1]
@@ -62,6 +63,10 @@ export class Splitter {
       }
       entry['nachname'] = inputArray.join(' ')
     }
+=======
+    console.log(input)
+    console.log(entry)
+>>>>>>> 9ad374176ae6eedd6f54baa7f7ac56cae0cff882
     return entry
   }
 }
