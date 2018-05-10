@@ -55,18 +55,19 @@ export class Splitter {
         nachname += buf + ' '
       }
       entry['nachname'] = nachname
-    } else {
+    } else if (inputArray.length > 0) {
       entry['vorname'] = inputArray[0]
       let index = inputArray.indexOf(inputArray[0])
       if (index > -1) {
         inputArray.splice(index, 1)
       }
       entry['nachname'] = inputArray.join(' ')
+    } else {
+      entry['nachname'] = inputArray[0]
     }
 =======
     console.log(input)
     console.log(entry)
->>>>>>> 9ad374176ae6eedd6f54baa7f7ac56cae0cff882
     return entry
   }
 }
