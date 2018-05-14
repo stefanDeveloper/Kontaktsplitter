@@ -2,11 +2,6 @@
   <div class="columns">
     <div class="column is-8-desktop  is-offset-2-desktop">
       <InputComponent v-on:add-entry="addEntry" ></InputComponent>
-      <p class="control">
-        <button class="button is-primary" @click="addTestEntry">
-          Neuer Testdaten Eintrag
-        </button>
-      </p>
       <Listing v-on:delete-entries="deleteEntries" :listEntries="entries"></Listing>
     </div>
   </div>
@@ -33,34 +28,6 @@ export default {
     addEntry (entry) {
       this.$data.entries.push(entry)
       Persistence.addEntry(entry)
-    },
-    // Adds three constant test entries to the store and list
-    addTestEntry () {
-      // Dummy call of the addEntry event
-      this.addEntry({
-        'anrede': 'Herrn Professor.',
-        'briefanrede': 'Sehr geehrter Herr Professor.',
-        'geschlecht': 'männlich',
-        'vorname': 'Heinreich Freiherr',
-        'titel': 'Professor',
-        'nachname': 'vom Wald'
-      })
-      this.addEntry({
-        'anrede': 'Herrn Dr.',
-        'briefanrede': 'Sehr geehrter Herr Dr.',
-        'geschlecht': 'männlich',
-        'vorname': 'Sandro',
-        'titel': 'Dr.',
-        'nachname': 'Gutmensch'
-      })
-      this.addEntry({
-        'anrede': 'Frau',
-        'briefanrede': 'Sehr geehrte Frau',
-        'geschlecht': 'weiblich',
-        'titel': '-',
-        'vorname': 'Sandra',
-        'nachname': 'Berger'
-      })
     },
     // Deletes the given entries
     deleteEntries (entries) {
