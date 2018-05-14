@@ -2,7 +2,7 @@
   <div class="columns">
       <div class="column is-four-fifths">
         <b-field>
-            <b-dropdown ref="dropdown" mobile-modal="false">
+            <b-dropdown ref="dropdown" class="not-disabled">
               <b-input
                   type="text"
                   minlength="1"
@@ -64,13 +64,14 @@
                 <div class="media">
                   <small class="media-left">Geschlecht</small>
                   <div class="media-content">
-                    <b-input
-                    type="text"
-                    v-model="entry.geschlecht"
-                    minlength="1"
-                    slot="trigger"
-                    rounded
-                    placeholder="Geschlecht"></b-input>
+                    <b-select ref="select" v-model="entry.geschlecht">
+                      <option
+                          v-for="gender in genders"
+                          v-bind:value="gender.value"
+                          :key="gender.id">
+                          {{ gender.value }}
+                      </option>
+                    </b-select>
                   </div>
                 </div>
               </b-dropdown-item>
@@ -98,13 +99,14 @@ export default {
         vorname: '',
         nachname: ''
       },
-      selected: null
+      selected: null,
+      genders: [{'id': 'men', 'value': 'männlich'}, {'id': 'woman', 'value': 'weiblich'}, {'id': 'empty', 'value': '-'}]
     }
   },
   methods: {
     buttonHandler: function (event) {
-      let entry = Splitter.splitRawInput(this.$data.inputRaw)
-      this.$emit('add-entry', entry)
+      console.log(this.$data.entry)
+      this.$emit('add-entry', this.$data.entry)
       this.$data.entry = {
         anrede: '',
         briefanrede: '',
@@ -142,7 +144,14 @@ export default {
   .dropdown-trigger {
     width: 100%;
   }
-  .dropdown .background{
-    background-color: #fff;
+  .dropdown .dropdown-menu .dropdown-item.is-disabled, .dropdown .dropdown-menu .has-link a.is-disabled {
+    cursor: auto;
+    opacity: 1;
+  }
+  .select select {
+    width: 100%;
+  }
+  .select {
+    width: 100%;
   }
 </style>
