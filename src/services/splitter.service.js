@@ -8,7 +8,7 @@ export class Splitter {
     // Check if the salutation map contains one of the input substrings
     if (Array.from(Constants.getSalutations().keys()).some(v => { return this.containsWord(input.toLowerCase(), v.toLowerCase()) })) {
       for (const [key, value] of Constants.getSalutations().entries()) {
-        if (input.toLowerCase().indexOf(key.toLowerCase()) >= 0) {
+        if (input.toLowerCase().indexOf(key.toLowerCase()) >= 0 && Object.keys(entry).length === 0 && entry.constructor === Object) {
           entry = {
             'anrede': value.anrede,
             'geschlecht': value.geschlecht,

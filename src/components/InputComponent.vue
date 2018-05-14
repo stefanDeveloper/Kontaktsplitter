@@ -16,7 +16,7 @@
                   class="dropdown-trigger">
 
               </b-input>
-              <b-dropdown-item>
+              <b-dropdown-item disabled>
                 <div class="media">
                   <small class="media-left">Briefanrede</small>
                   <div class="media-content">
