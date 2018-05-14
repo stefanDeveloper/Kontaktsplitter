@@ -25,16 +25,28 @@ export class Constants {
   static salutations = new Map([
     ['Mr.', {
       'geschlecht': 'männlich',
-      'anrede': 'Mr.',
-      'brief': 'Dear Mr.' }
+      'anrede': 'Mr',
+      'brief': 'Dear Mr' }
+    ], ['Mr', {
+      'geschlecht': 'männlich',
+      'anrede': 'Mr',
+      'brief': 'Dear Mr' }
     ], ['Ms.', {
       'geschlecht': 'weiblich',
-      'anrede': 'Ms.',
-      'brief': 'Dear Ms.' }
+      'anrede': 'Ms',
+      'brief': 'Dear Ms' }
     ], ['Mrs.', {
       'geschlecht': 'weiblich',
-      'anrede': 'Mrs.',
-      'brief': 'Dear Mrs.' }
+      'anrede': 'Mrs',
+      'brief': 'Dear Mrs' }
+    ], ['Ms', {
+      'geschlecht': 'weiblich',
+      'anrede': 'Ms',
+      'brief': 'Dear Ms' }
+    ], ['Mrs', {
+      'geschlecht': 'weiblich',
+      'anrede': 'Mrs',
+      'brief': 'Dear Mrs' }
     ], ['Frau', {
       'geschlecht': 'weiblich',
       'anrede': 'Frau',
@@ -81,6 +93,7 @@ export class Constants {
       'brief': 'Estimado Se\u00f1or' }
     ]])
   static defaultSalutation = 'Sehr geehrte Damen und Herren'
+  static prefix = ['zu', 'von', 'de', 'van']
 
   static getTitles () {
     return this.titles
