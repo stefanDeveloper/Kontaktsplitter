@@ -14,18 +14,15 @@
                   placeholder="Setzen Sie Ihre Anrede"
                   @input="inputHandler"
                   class="dropdown-trigger">
-
               </b-input>
               <b-dropdown-item disabled>
                 <div class="media">
                   <small class="media-left">Briefanrede</small>
                   <div class="media-content">
                     <b-input
-                    type="text"
                     v-model="entry.briefanrede"
-                    minlength="1"
-                    slot="trigger"
                     rounded
+                    type="text"
                     placeholder="Briefanrede"></b-input>
                   </div>
                 </div>
@@ -33,30 +30,36 @@
                   <small class="media-left">Anrede</small>
                   <div class="media-content">
                     <b-input
-                    type="text"
                     v-model="entry.anrede"
-                    minlength="1"
-                    slot="trigger"
                     rounded
+                    type="text"
                     placeholder="Anrede"></b-input>
+                  </div>
+                </div>
+                <div class="media">
+                  <small class="media-left">Titel</small>
+                  <div class="media-content">
+                    <b-input
+                    v-model="entry.titel"
+                    rounded
+                    type="text"
+                    placeholder="Titel"></b-input>
                   </div>
                 </div>
                 <div class="media">
                   <small class="media-left">Vor- u. Nachname</small>
                   <div class="media-content">
                     <b-input
-                    type="text"
                     v-model="entry.vorname"
-                    minlength="1"
-                    slot="trigger"
                     rounded
+                    type="text"
                     placeholder="Vorname">
                     </b-input><br />
                     <b-input
-                    type="text"
                     v-model="entry.nachname"
-                    minlength="1"
-                    slot="trigger"
+                    minLength="1"
+                    type="text"
+                    @input="lastnameHandler"
                     rounded
                     placeholder="Nachname"></b-input>
                   </div>
@@ -79,7 +82,7 @@
         </b-field>
       </div>
       <div class="column">
-        <button class="button level-right" slot="trigger" :disabled="inputRaw == 0" v-on:click="buttonHandler">Übernehmen</button>
+        <button class="button level-right" slot="trigger" :disabled="inputRaw == '' || entry.nachname == ''" v-on:click="buttonHandler">Übernehmen</button>
       </div>
     </div>
 </template>
@@ -100,12 +103,11 @@ export default {
         nachname: ''
       },
       selected: null,
-      genders: [{'id': 'men', 'value': 'männlich'}, {'id': 'woman', 'value': 'weiblich'}, {'id': 'empty', 'value': '-'}]
+      genders: [{'id': 'männlich', 'value': 'männlich'}, {'id': 'weiblich', 'value': 'weiblich'}, {'id': '', 'value': '-'}]
     }
   },
   methods: {
     buttonHandler: function (event) {
-      console.log(this.$data.entry)
       this.$emit('add-entry', this.$data.entry)
       this.$data.entry = {
         anrede: '',
@@ -127,6 +129,11 @@ export default {
         }
       } else {
         this.$data.entry = Splitter.splitRawInput(this.$data.inputRaw)
+      }
+    },
+    lastnameHandler: function (event) {
+      if (this.$data.entry.nachname == '') {
+        this.$snackbar.open(`Nachname kann leider nicht leer sein!`)
       }
     }
   },
