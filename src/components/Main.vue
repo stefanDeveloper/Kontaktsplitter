@@ -1,7 +1,7 @@
 <template>
   <div class="columns">
     <div class="column is-8-desktop  is-offset-2-desktop">
-      <InputComponent></InputComponent>
+      <InputComponent v-on:add-entry="addEntry" ></InputComponent>
       <p class="control">
         <button class="button is-primary" @click="addTestEntry">
           Neuer Testdaten Eintrag
