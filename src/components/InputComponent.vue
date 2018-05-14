@@ -132,7 +132,7 @@ export default {
       }
     },
     lastnameHandler: function (event) {
-      if (this.$data.entry.nachname == '') {
+      if (this.$data.entry.nachname == '' && this.$data.inputRaw.length > 0) {
         this.$snackbar.open(`Nachname kann leider nicht leer sein!`)
       }
     }
