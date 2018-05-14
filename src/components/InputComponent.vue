@@ -70,7 +70,7 @@
                     <b-select ref="select" v-model="entry.geschlecht">
                       <option
                           v-for="gender in genders"
-                          v-bind:value="gender.value"
+                          v-bind:value="gender.id"
                           :key="gender.id">
                           {{ gender.value }}
                       </option>
