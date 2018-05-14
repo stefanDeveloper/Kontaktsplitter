@@ -105,6 +105,14 @@ export default {
     buttonHandler: function (event) {
       let entry = Splitter.splitRawInput(this.$data.inputRaw)
       this.$emit('add-entry', entry)
+      this.$data.entry = {
+        anrede: '',
+        briefanrede: '',
+        geschlecht: '',
+        vorname: '',
+        nachname: ''
+      }
+      this.$data.inputRaw = ''
     },
     inputHandler: function (event) {
       if (this.$data.inputRaw.length == 0) {
