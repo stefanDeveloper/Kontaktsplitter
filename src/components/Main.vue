@@ -42,6 +42,7 @@ export default {
         'briefanrede': 'Sehr geehrter Herr Professor.',
         'geschlecht': 'männlich',
         'vorname': 'Heinreich Freiherr',
+        'titel': 'Professor',
         'nachname': 'vom Wald'
       })
       this.addEntry({
@@ -49,12 +50,14 @@ export default {
         'briefanrede': 'Sehr geehrter Herr Dr.',
         'geschlecht': 'männlich',
         'vorname': 'Sandro',
+        'titel': 'Dr.',
         'nachname': 'Gutmensch'
       })
       this.addEntry({
         'anrede': 'Frau',
         'briefanrede': 'Sehr geehrte Frau',
         'geschlecht': 'weiblich',
+        'titel': '-',
         'vorname': 'Sandra',
         'nachname': 'Berger'
       })
