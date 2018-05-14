@@ -12,9 +12,12 @@
         <b-table-column field="anrede" label="Anrede">
           {{ props.row.anrede }}
         </b-table-column>
-
         <b-table-column field="briefanrede" label="Briefanrede">
           {{ props.row.briefanrede }}
+        </b-table-column>
+
+        <b-table-column field="titel" label="Titel">
+          {{ props.row.titel }}
         </b-table-column>
 
         <b-table-column field="geschlecht" label="Geschlecht">
