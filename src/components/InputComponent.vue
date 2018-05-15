@@ -144,7 +144,7 @@ export default {
       }
     },
     mouseOverBtnHandler: function (event) {
-      if (this.$data.entry['vorname'] === '') {
+      if (!this.$data.entry['vorname']) {
         this.$snackbar.open(`Vorname sollte gesetzt sein!`)
       }
     }

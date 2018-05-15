@@ -2,13 +2,7 @@ import { Constants } from './constants.service.js'
 
 export class Splitter {
   static splitRawInput (input) {
-    let entry = {
-      'anrede': '',
-      'geschlecht': '',
-      'briefanrede': '',
-      'vorname': '',
-      'nachname': ''
-    }
+    let entry = {}
     let defaultSalutation = false
     input = input.toLowerCase()
     // Check Anrede of Input
@@ -83,8 +77,10 @@ export class Splitter {
 
     // If the inputArray is bigger than 1, than it have first and last name
     } else if (inputArray.length > 1) {
-      entry['vorname'] = this.capitalizeFirstLetter(this.trim(inputArray[0]))
-      this.removeObjectFromArray(inputArray, inputArray[0])
+      if (!Constants.prefix.some(v => { return this.containsWord(inputArray[0], v.toLowerCase()) })) {
+        entry['vorname'] = this.capitalizeFirstLetter(this.trim(inputArray[0]))
+        this.removeObjectFromArray(inputArray, inputArray[0])
+      }
 
       // Remove all substrings, which are adelstitel
       for (let i = 0; i < inputArray.length; i++) {
