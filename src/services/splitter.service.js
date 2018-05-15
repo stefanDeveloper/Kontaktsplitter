@@ -80,8 +80,18 @@ export class Splitter {
       entry['vorname'] = this.capitalizeFirstLetter(this.trim(inputArray[0]))
       this.removeObjectFromArray(inputArray, inputArray[0])
 
+      // Remove all substrings, which are adelstitel
+      for (let i = 0; i < inputArray.length; i++) {
+        if (Constants.adelstitel.some(v => { return this.containsWord(inputArray[i], v.toLowerCase()) })) {
+          entry['anrede'] += ' ' + this.capitalizeFirstLetter(this.trim(inputArray[i]))
+          entry['briefanrede'] += ' ' + this.capitalizeFirstLetter(this.trim(inputArray[i]))
+          entry['titel'] += ' ' + this.capitalizeFirstLetter(this.trim(inputArray[i]))
+          this.removeObjectFromArray(inputArray, inputArray[i])
+        }
+      }
+
       // Set all last names with first upper letter, expect prefixes like van, de, zu, von, van de
-      for (var i = 0; i < inputArray.length; i++) {
+      for (let i = 0; i < inputArray.length; i++) {
         if (!Constants.prefix.some(v => { return this.containsWord(inputArray[i], v.toLowerCase()) })) {
           inputArray[i] = this.capitalizeFirstLetter(inputArray[i])
         }

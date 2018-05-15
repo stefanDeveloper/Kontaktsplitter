@@ -93,7 +93,8 @@ export class Constants {
       'brief': 'Estimado Se\u00f1or' }
     ]])
   static defaultSalutation = 'Sehr geehrte Damen und Herren'
-  static prefix = ['zu', 'von', 'de', 'van']
+  static prefix = ['zu', 'von', 'de', 'van', 'vom']
+  static adelstitel = ['Kaiser', 'Kaiserin', 'Zar', 'Zarin', 'König', 'Köngin', 'Erzherzog', 'Erzherzogin', 'Großherzog', 'Großherzogin', 'Kurfürst', 'Kurfürstin', 'Herzog', 'Herzogin', 'Landgraf', 'Landgräfin', 'Markgraf', 'Markgräfin', 'Fürst', 'Fürstin', 'Graf', 'Gräfin', 'Freiherr', 'Freifrau', 'Baron', 'Baronin']
 
   static getTitles () {
     return this.titles
