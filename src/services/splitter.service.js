@@ -2,7 +2,13 @@ import { Constants } from './constants.service.js'
 
 export class Splitter {
   static splitRawInput (input) {
-    let entry = {}
+    let entry = {
+      'anrede': '',
+      'geschlecht': '',
+      'briefanrede': '',
+      'vorname': '',
+      'nachname': ''
+    }
     let defaultSalutation = false
     input = input.toLowerCase()
     // Check Anrede of Input

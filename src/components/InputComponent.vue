@@ -88,7 +88,7 @@
         </b-field>
       </div>
       <div class="column">
-        <button class="button level-right" slot="trigger" :disabled="inputRaw == '' || entry.nachname == ''" v-on:click="buttonHandler" id="apply-button">Übernehmen</button>
+        <button class="button level-right" slot="trigger" @mouseover="mouseOverBtnHandler" :disabled="inputRaw == '' || entry.nachname == ''" v-on:click="buttonHandler" id="apply-button">Übernehmen</button>
       </div>
     </div>
 </template>
@@ -139,8 +139,13 @@ export default {
       }
     },
     lastnameHandler: function (event) {
-      if (this.$data.entry.nachname == '' && this.$data.inputRaw.length > 0) {
+      if (this.$data.entry.nachname === '' && this.$data.inputRaw.length > 0) {
         this.$snackbar.open(`Nachname kann leider nicht leer sein!`)
+      }
+    },
+    mouseOverBtnHandler: function (event) {
+      if (this.$data.entry['vorname'] === '') {
+        this.$snackbar.open(`Vorname sollte gesetzt sein!`)
       }
     }
   },
