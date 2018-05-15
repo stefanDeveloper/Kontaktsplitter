@@ -115,6 +115,7 @@ export default {
   methods: {
     buttonHandler: function (event) {
       this.$emit('add-entry', this.$data.entry)
+      Splitter.addTitles(this.$data.entry)
       this.$data.entry = {
         anrede: '',
         briefanrede: '',

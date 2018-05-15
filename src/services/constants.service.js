@@ -1,29 +1,29 @@
 export class Constants {
   static titles = new Map([
-    ['Prof.', {
+    ['prof.', {
       'title': 'Professor',
       'kurzBz': 'Prof.'}
-    ], ['Professor', {
+    ], ['professor', {
       'title': 'Professor',
       'kurzBz': 'Prof.'}
-    ], ['Dr.', {
+    ], ['dr.', {
       'title': 'Doktor',
       'kurzBz': 'Dr.'}
-    ], ['Doktor', {
+    ], ['doktor', {
       'title': 'Doktor',
       'kurzBz': 'Dr.'}
-    ], ['Dipl.', {
+    ], ['dipl.', {
       'title': 'Diplom',
       'kurzBz': 'Dipl.'}
-    ], ['Diplom', {
+    ], ['diplom', {
       'title': 'Diplom',
       'kurzBz': 'Dipl.'}
-    ], ['Dr.-Ing.', {
+    ], ['dr.-ing.', {
       'title': 'Doktor Ingenieur',
       'kurzBz': 'Dr.-Ing.'}
-    ], ['Dipl. Ing.', {
-      'titel': 'Diplom Ingenieur',
-      'kurzBz': 'Dipl. Ing.'}
+    ], ['ing.', {
+      'titel': 'Ingenieur',
+      'kurzBz': 'Ing.'}
     ]])
   static salutations = new Map([
     ['Mr.', {

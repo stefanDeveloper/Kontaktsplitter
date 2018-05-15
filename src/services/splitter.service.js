@@ -39,12 +39,12 @@ export class Splitter {
     // Subtitles are recongnize with a dot.
     // After that they'll be removed from the array.
     for (let i = 0; i < inputArray.length; i++) {
-      if (Array.from(Constants.getTitles().keys()).some(v => { return inputArray[i].indexOf(v.toLowerCase()) >= 0 })) {
-        title += Constants.getTitles().get(this.capitalizeFirstLetter(inputArray[i])).kurzBz + ' '
+      if (Constants.getTitles().has(inputArray[i])) {
+        title += Constants.getTitles().get(inputArray[i]).kurzBz + ' '
         this.removeObjectFromArray(inputArray, inputArray[i])
         // If an title is removed from the array, we have to set i - 1 to get the next value
         i -= 1
-      } else if (inputArray[i].indexOf('.') !== -1) {
+      } else if (inputArray[i].indexOf('.') >= 0) {
         title += inputArray[i] + ' '
         this.removeObjectFromArray(inputArray, inputArray[i])
         // If an title is removed from the array, we have to set i - 1 to get the next value
@@ -73,7 +73,7 @@ export class Splitter {
         let buf = inputArray[i].replace(',', '')
         nachname += buf + ' '
       }
-      entry['nachname'] = this.trim(nachname)
+      entry['nachname'] = this.capitalizeFirstLetter(this.trim(nachname))
 
     // If the inputArray is bigger than 1, than it have first and last name
     } else if (inputArray.length > 1) {
@@ -108,6 +108,20 @@ export class Splitter {
     return entry
   }
 
+  static addTitles (entry) {
+    let inputArray = entry['titel'].split(' ')
+    inputArray = inputArray.filter(n => { return n != '' })
+
+    for (let i = 0; i < inputArray.length; i++) {
+      if (!Constants.getTitles().has(inputArray[i])) {
+        Constants.getTitles().set(inputArray[i].toLowerCase(), {
+          'title': 'Unnötiger Dreck',
+          'kurzBz': inputArray[i]}
+        )
+      }
+    }
+  }
+
   static removeObjectFromArray (array, object) {
     let index = array.indexOf(object)
     if (index > -1) {
@@ -135,6 +149,10 @@ export class Splitter {
 
   // This function sets the first letter of a string to uppercase
   static capitalizeFirstLetter (string) {
+    if (string.indexOf('-') >= 0) {
+      let index = string.indexOf('-')
+      return string.charAt(0).toUpperCase() + string.slice(1, index + 1) + string.charAt(index + 1).toUpperCase() + string.slice(index + 2)
+    }
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
 }
