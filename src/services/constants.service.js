@@ -97,8 +97,7 @@ export class Constants {
     ]])
   static defaultSalutation = 'Sehr geehrte Damen und Herren'
   static prefix = ['zu', 'von', 'de', 'van', 'vom', 'y']
-  static adelstitel = ['Kaiser', 'Kaiserin', 'Zar', 'Zarin', 'König', 'Köngin', 'Erzherzog', 'Erzherzogin', 'Großherzog', 'Großherzogin', 'Kurfürst', 'Kurfürstin', 'Herzog', 'Herzogin', 'Landgraf', 'Landgräfin', 'Markgraf', 'Markgräfin', 'Fürst', 'Fürstin', 'Graf', 'Gräfin', 'Freiherr', 'Freifrau', 'Baron', 'Baronin']
-  static salutations2 = new Map([
+  static adelstitel = new Map([
     ['kaiser', {
       'titel': 'Kaiser',
       'anrede': '(Kaiserliche) Majestät' }

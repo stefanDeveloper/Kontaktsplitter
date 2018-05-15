@@ -61,6 +61,16 @@ export class Splitter {
     let anrede = entry['anrede'] + ' ' + title
     entry['anrede'] = this.trim(anrede)
 
+    // Remove all substrings, which are adelstitel
+    for (let i = 0; i < inputArray.length; i++) {
+      console.log(inputArray[i])
+      if (Constants.adelstitel.has(inputArray[i])) {
+        entry['anrede'] = this.trim(Constants.adelstitel.get(inputArray[i]).anrede + ' ' + entry['titel'])
+        entry['titel'] = this.trim(entry['titel'] + ' ' + Constants.adelstitel.get(inputArray[i]).titel)
+        this.removeObjectFromArray(inputArray, inputArray[i])
+      }
+    }
+
     // Check First and Last name
     // Checks if one substring contains a comma char to switch first and last name.
     if (inputArray.some(v => v.indexOf(',') !== -1)) {
@@ -80,15 +90,6 @@ export class Splitter {
       if (!Constants.prefix.some(v => { return this.containsWord(inputArray[0], v.toLowerCase()) })) {
         entry['vorname'] = this.capitalizeFirstLetter(this.trim(inputArray[0]))
         this.removeObjectFromArray(inputArray, inputArray[0])
-      }
-
-      // Remove all substrings, which are adelstitel
-      for (let i = 0; i < inputArray.length; i++) {
-        if (Constants.salutations2.has(inputArray[i])) {
-          entry['anrede'] = this.trim(Constants.salutations2.get(inputArray[i]).anrede + ' ' + entry['titel'])
-          entry['titel'] = this.trim(entry['titel'] + ' ' + Constants.salutations2.get(inputArray[i]).titel)
-          this.removeObjectFromArray(inputArray, inputArray[i])
-        }
       }
 
       // Set all last names with first upper letter, expect prefixes like van, de, zu, von, van de
