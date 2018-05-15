@@ -8,7 +8,7 @@
                   minlength="1"
                   slot="trigger"
                   rounded
-                  maxlength="100"
+                  maxlength="99"
                   v-model="inputRaw"
                   @select="option => selected = option"
                   placeholder="Setzen Sie Ihre Anrede"
