@@ -2,12 +2,12 @@
   <div>
     <!-- Search input -->
     <b-field class="search-input">
-      <b-autocomplete rounded v-model="name" :data="filterOptions" placeholder="Suchwort" icon="magnify">
+      <b-autocomplete rounded v-model="name" :data="filterOptions" placeholder="Suchwort" icon="magnify" id="search-input-field">
         <template slot="empty">Keine Ergebnisse</template>
       </b-autocomplete>
     </b-field>
     <!-- List -->
-    <b-table :data="filteredData" :checked-rows.sync="checkedRows" checkable>
+    <b-table :data="filteredData" :checked-rows.sync="checkedRows" checkable id="persisted-address-table">
       <template slot-scope="props">
         <b-table-column field="anrede" label="Anrede">
           {{ props.row.anrede }}
@@ -47,7 +47,7 @@
     </b-table>
     <!-- Delete button -->
     <p class="control is-pulled-right">
-      <button :disabled="checkedRows.length == 0" class="button is-primary" v-text="deleteButtonText" v-on:click="deleteCheckedRows()">
+      <button :disabled="checkedRows.length == 0" class="button is-primary" v-text="deleteButtonText" v-on:click="deleteCheckedRows()" id="delete-entry-button">
       </button>
     </p>
   </div>

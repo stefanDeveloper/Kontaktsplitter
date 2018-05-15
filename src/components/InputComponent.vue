@@ -13,7 +13,8 @@
                   @select="option => selected = option"
                   placeholder="Setzen Sie Ihre Anrede"
                   @input="inputHandler"
-                  class="dropdown-trigger">
+                  class="dropdown-trigger"
+                  id="address-input-field">
               </b-input>
               <b-dropdown-item disabled>
                 <div class="media">
@@ -23,7 +24,8 @@
                     v-model="entry.briefanrede"
                     rounded
                     type="text"
-                    placeholder="Briefanrede"></b-input>
+                    placeholder="Briefanrede"
+                    id="dropdown-lettersalutation-input-field"></b-input>
                   </div>
                 </div>
                 <div class="media">
@@ -33,7 +35,8 @@
                     v-model="entry.anrede"
                     rounded
                     type="text"
-                    placeholder="Anrede"></b-input>
+                    placeholder="Anrede"
+                    id="dropdown-address-input-field"></b-input>
                   </div>
                 </div>
                 <div class="media">
@@ -43,7 +46,8 @@
                     v-model="entry.titel"
                     rounded
                     type="text"
-                    placeholder="Titel"></b-input>
+                    placeholder="Titel"
+                    id="dropdown-title-input-field"></b-input>
                   </div>
                 </div>
                 <div class="media">
@@ -53,7 +57,8 @@
                     v-model="entry.vorname"
                     rounded
                     type="text"
-                    placeholder="Vorname">
+                    placeholder="Vorname"
+                    id="dropdown-forename-input-field">
                     </b-input><br />
                     <b-input
                     v-model="entry.nachname"
@@ -61,13 +66,14 @@
                     type="text"
                     @input="lastnameHandler"
                     rounded
-                    placeholder="Nachname"></b-input>
+                    placeholder="Nachname"
+                    id="dropdown-surname-input-field"></b-input>
                   </div>
                 </div>
                 <div class="media">
                   <small class="media-left">Geschlecht</small>
                   <div class="media-content">
-                    <b-select ref="select" v-model="entry.geschlecht">
+                    <b-select ref="select" v-model="entry.geschlecht" id="dropdown-gender-select">
                       <option
                           v-for="gender in genders"
                           v-bind:value="gender.id"
@@ -82,7 +88,7 @@
         </b-field>
       </div>
       <div class="column">
-        <button class="button level-right" slot="trigger" :disabled="inputRaw == '' || entry.nachname == ''" v-on:click="buttonHandler">Übernehmen</button>
+        <button class="button level-right" slot="trigger" :disabled="inputRaw == '' || entry.nachname == ''" v-on:click="buttonHandler" id="apply-button">Übernehmen</button>
       </div>
     </div>
 </template>

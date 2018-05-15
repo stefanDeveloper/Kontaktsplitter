@@ -21,6 +21,9 @@ export class Constants {
     ], ['Dr.-Ing.', {
       'title': 'Doktor Ingenieur',
       'kurzBz': 'Dr.-Ing.'}
+    ], ['Dipl. Ing.', {
+      'titel': 'Diplom Ingenieur',
+      'kurzBz': 'Dipl. Ing.'}
     ]])
   static salutations = new Map([
     ['Mr.', {
@@ -81,7 +84,7 @@ export class Constants {
       'brief': 'Monsieur' }
     ], ['Mme.', {
       'geschlecht': 'weiblich',
-      'anrede': 'Mme.',
+      'anrede': 'Mme',
       'brief': 'Madame' }
     ], ['Se\u00f1ora.', {
       'geschlecht': 'weiblich',
@@ -93,7 +96,7 @@ export class Constants {
       'brief': 'Estimado Se\u00f1or' }
     ]])
   static defaultSalutation = 'Sehr geehrte Damen und Herren'
-  static prefix = ['zu', 'von', 'de', 'van', 'vom']
+  static prefix = ['zu', 'von', 'de', 'van', 'vom', 'y']
   static adelstitel = ['Kaiser', 'Kaiserin', 'Zar', 'Zarin', 'König', 'Köngin', 'Erzherzog', 'Erzherzogin', 'Großherzog', 'Großherzogin', 'Kurfürst', 'Kurfürstin', 'Herzog', 'Herzogin', 'Landgraf', 'Landgräfin', 'Markgraf', 'Markgräfin', 'Fürst', 'Fürstin', 'Graf', 'Gräfin', 'Freiherr', 'Freifrau', 'Baron', 'Baronin']
 
   static getTitles () {
