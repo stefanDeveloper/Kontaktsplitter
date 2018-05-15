@@ -34,9 +34,9 @@ describe('splitter.service.js', () => {
   it('splits unformatted address Professor Heinreich Freiherr vom Wald', () => {
     var testObject = {
       'anrede': 'Freiherrn Prof.',
-      'briefanrede': 'Sehr geehrter Herr Prof.',
+      'briefanrede': 'Sehr geehrte Damen und Herren',
       'titel': 'Prof. Freiherr',
-      'geschlecht': 'männlich',
+      'geschlecht': '',
       'vorname': 'Heinreich',
       'nachname': 'vom Wald'
     }

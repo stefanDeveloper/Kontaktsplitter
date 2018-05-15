@@ -84,12 +84,9 @@ export class Splitter {
 
       // Remove all substrings, which are adelstitel
       for (let i = 0; i < inputArray.length; i++) {
-        if (Constants.adelstitel.some(v => { return this.containsWord(inputArray[i], v.toLowerCase()) })) {
-          entry['anrede'] += ' ' + this.capitalizeFirstLetter(this.trim(inputArray[i]))
-          if (!defaultSalutation) {
-            entry['briefanrede'] += ' ' + this.capitalizeFirstLetter(this.trim(inputArray[i]))
-          }
-          entry['titel'] += ' ' + this.capitalizeFirstLetter(this.trim(inputArray[i]))
+        if (Constants.salutations2.has(inputArray[i])) {
+          entry['anrede'] = this.trim(Constants.salutations2.get(inputArray[i]).anrede + ' ' + entry['titel'])
+          entry['titel'] = this.trim(entry['titel'] + ' ' + Constants.salutations2.get(inputArray[i]).titel)
           this.removeObjectFromArray(inputArray, inputArray[i])
         }
       }

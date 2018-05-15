@@ -98,7 +98,56 @@ export class Constants {
   static defaultSalutation = 'Sehr geehrte Damen und Herren'
   static prefix = ['zu', 'von', 'de', 'van', 'vom', 'y']
   static adelstitel = ['Kaiser', 'Kaiserin', 'Zar', 'Zarin', 'König', 'Köngin', 'Erzherzog', 'Erzherzogin', 'Großherzog', 'Großherzogin', 'Kurfürst', 'Kurfürstin', 'Herzog', 'Herzogin', 'Landgraf', 'Landgräfin', 'Markgraf', 'Markgräfin', 'Fürst', 'Fürstin', 'Graf', 'Gräfin', 'Freiherr', 'Freifrau', 'Baron', 'Baronin']
-
+  static salutations2 = new Map([
+    ['kaiser', {
+      'titel': 'Kaiser',
+      'anrede': '(Kaiserliche) Majestät' }
+    ], ['kaiserin', {
+      'titel': 'Kaiserin',
+      'anrede': '(Kaiserliche) Majestät' }
+    ], ['könig', {
+      'titel': 'König',
+      'anrede': '(Königliche) Majestät' }
+    ], ['königin', {
+      'titel': 'Königin',
+      'anrede': '(Königliche) Majestät' }
+    ], ['erzherzog', {
+      'titel': 'Erzherzog',
+      'anrede': 'Kaiserliche Hoheit' }
+    ], ['erzherzogin', {
+      'titel': 'Erzherzogin',
+      'anrede': 'Kaiserliche Hoheit' }
+    ], ['prinz', {
+      'titel': 'Prinz',
+      'anrede': 'Kaiserliche Hoheit' }
+    ], ['großherzog', {
+      'titel': 'Großherzog',
+      'anrede': 'Königliche Hoheit' }
+    ], ['erzherzogin', {
+      'titel': 'Großherzog',
+      'anrede': 'Königliche Hoheit' }
+    ], ['kurfürst', {
+      'titel': 'Kurfürst',
+      'anrede': 'Königliche Hoheit' }
+    ], ['kurfürstin', {
+      'titel': 'Kurfürst',
+      'anrede': 'Königliche Hoheit' }
+    ], ['herzog', {
+      'titel': 'Herzog',
+      'anrede': 'Königliche Hoheit' }
+    ], ['herzogin', {
+      'titel': 'Herzogin',
+      'anrede': 'Königliche Hoheit' }
+    ], ['landgraf', {
+      'titel': 'Landgraf',
+      'anrede': 'Hoheit' }
+    ], ['landgräfin', {
+      'titel': 'Landgräfin',
+      'anrede': 'Hoheit' }
+    ], ['freiherr', {
+      'titel': 'Freiherr',
+      'anrede': 'Freiherrn' }
+    ]])
   static getTitles () {
     return this.titles
   }
