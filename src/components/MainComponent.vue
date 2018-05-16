@@ -2,20 +2,20 @@
   <div class="columns">
     <div class="column is-8-desktop  is-offset-2-desktop">
       <InputComponent v-on:add-entry="addEntry" ></InputComponent>
-      <Listing v-on:delete-entries="deleteEntries" :listEntries="entries"></Listing>
+      <ListingComponent v-on:delete-entries="deleteEntries" :listEntries="entries"></ListingComponent>
     </div>
   </div>
 </template>
 
 <script>
-import Listing from './Listing.vue'
+import ListingComponent from './ListingComponent.vue'
 import InputComponent from './InputComponent.vue'
 import { Persistence } from '../services/persistence.service'
 
 export default {
-  name: 'Main',
+  name: 'MainComponent',
   components: {
-    Listing,
+    ListingComponent,
     InputComponent
   },
   data () {
