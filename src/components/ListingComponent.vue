@@ -65,7 +65,7 @@ function includesSubstring (string, substring) {
 }
 
 export default {
-  name: 'Listing',
+  name: 'ListingComponent',
   data () {
     return {
       msg: '',
