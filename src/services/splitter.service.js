@@ -85,7 +85,7 @@ export class Splitter {
       }
       entry['nachname'] = this.capitalizeFirstLetter(this.trim(nachname))
 
-    // If the inputArray is bigger than 1, than it have first and last name
+    // If the inputArray is bigger than 1, than it has first and last name
     } else if (inputArray.length > 1) {
       if (!Constants.prefix.some(v => { return this.containsWord(inputArray[0], v.toLowerCase()) })) {
         entry['vorname'] = this.capitalizeFirstLetter(this.trim(inputArray[0]))
@@ -102,7 +102,9 @@ export class Splitter {
       entry['nachname'] = this.trim(inputArray.join(' '))
 
     // Only one string in array it's always the last name.
+    // Set vorname to empty string, to avoid undefined vorname
     } else if (inputArray.length == 1) {
+      entry['vorname'] = ''
       entry['nachname'] = this.capitalizeFirstLetter(this.trim(inputArray[0]))
     }
     return entry
