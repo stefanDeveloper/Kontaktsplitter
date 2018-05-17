@@ -88,7 +88,7 @@
         </b-field>
       </div>
       <div class="column">
-        <button class="button level-right" slot="trigger" @mouseover="mouseOverBtnHandler" :disabled="inputRaw == '' || entry.nachname == ''" v-on:click="buttonHandler" id="apply-button">Übernehmen</button>
+        <button class="button level-right" slot="trigger" @mouseover="mouseOverBtnHandler" :disabled="inputRaw === '' || !entry.nachname || 0 === entry.nachname.length" v-on:click="buttonHandler" id="apply-button">Übernehmen</button>
       </div>
     </div>
 </template>
