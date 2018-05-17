@@ -63,7 +63,6 @@ export class Splitter {
 
     // Remove all substrings, which are adelstitel
     for (let i = 0; i < inputArray.length; i++) {
-      console.log(inputArray[i])
       if (Constants.adelstitel.has(inputArray[i])) {
         entry['anrede'] = this.trim(Constants.adelstitel.get(inputArray[i]).anrede + ' ' + entry['titel'])
         entry['titel'] = this.trim(entry['titel'] + ' ' + Constants.adelstitel.get(inputArray[i]).titel)
